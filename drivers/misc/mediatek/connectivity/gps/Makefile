@@ -69,7 +69,7 @@ GPS_DRV_CONTROL_LNA := n
 GPS_DL_SUPPORT := n
 GPS_DL_HAS_MOCK := n
 GPS_DL_HAS_CONNINFRA_DRV := n
-GPS_SRC_FOLDER := $(TOP)/vendor/mediatek/kernel_modules/connectivity/gps
+GPS_SRC_FOLDER := $(srctree)/drivers/misc/mediatek/connectivity/gps
 
 ifeq ($(CONFIG_ARCH_MTK_PROJECT),"k6833v1_64_swrgo")
 ccflags-y += -DCONFIG_GPSL5_SUPPORT
@@ -110,7 +110,7 @@ ccflags-y += -I$(GPS_SRC_FOLDER)/data_link/plat/$(GPS_DL_PLATFORM)/inc
 ccflags-y += -I$(GPS_SRC_FOLDER)/data_link/hw/inc/$(GPS_DL_PLATFORM)
 ccflags-y += -I$(GPS_SRC_FOLDER)/data_link/hw/inc/$(GPS_DL_PLATFORM)/coda_gen
 ifeq ($(GPS_DL_HAS_CONNINFRA_DRV),y)
-CONNINFRA_SRC_FOLDER := $(TOP)/vendor/mediatek/kernel_modules/connectivity/conninfra
+CONNINFRA_SRC_FOLDER := $(srctree)/drivers/misc/mediatek/connectivity/conninfra
 ccflags-y += -I$(CONNINFRA_SRC_FOLDER)/include
 ccflags-y += -DGPS_DL_HAS_CONNINFRA_DRV=1
 endif
@@ -173,7 +173,7 @@ ccflags-y += -DGPS_DL_HAS_MOCK=1
 endif
 
 else #Legacy drivers
-WMT_SRC_FOLDER := $(TOP)/vendor/mediatek/kernel_modules/connectivity/common
+WMT_SRC_FOLDER := $(srctree)/drivers/misc/mediatek/connectivity/common
 
 ifeq ($(CONFIG_MTK_COMBO_CHIP),)
     $(error CONFIG_MTK_COMBO_CHIP not defined)
